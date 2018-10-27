@@ -1,0 +1,50 @@
+body {
+    padding:0;
+    margin:0;
+    border:0;
+    overflow: hidden;
+}
+.container {
+    height: 100vh;
+    float:left;
+}
+.container.left {
+    width:40vw;
+    background-color:whitesmoke;
+}
+.container.right {
+    width:60vw;
+    background-color:white;
+}
+
+.binary-input-wrapper {
+    text-align: center;
+}
+.binary-input {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    background-color:gray;
+    text-align: center;
+}
+
+
+.codmod-wrapper {
+    padding:30px;
+}
+.codmod-input {
+    width:50%;
+    float:left;
+    text-align: center;
+    border-left:2px solid lightgray;
+    padding:15px;
+    box-sizing:border-box;
+}
+.codmod-input:first-child {
+    border-left:none;
+}
+.codmod-input input,
+.codmod-input label {
+    cursor:pointer;
+}

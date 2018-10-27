@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CODMOD Simulator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    CODMOD Simulator
+    <div class="container left">
+        <h1>Informe o número binario (8 bits)</h1>
+        <div class="binary-input-wrapper">
+            <div class="binary-input" data-digit="8" data-value="0">0</div>
+            <div class="binary-input" data-digit="7" data-value="0">0</div>
+            <div class="binary-input" data-digit="6" data-value="0">0</div>
+            <div class="binary-input" data-digit="5" data-value="0">0</div>
+            <div class="binary-input" data-digit="4" data-value="0">0</div>
+            <div class="binary-input" data-digit="3" data-value="0">0</div>
+            <div class="binary-input" data-digit="2" data-value="0">0</div>
+            <div class="binary-input" data-digit="1" data-value="0">0</div>
+        </div>
+        <div class="codmod-wrapper">
+            <div class="codmod-input">
+                <input id="codmod-mod" type="radio" name="codmod" value="cod">
+                <label for="codmod-cod">Codificação</label>
+            </div>
+            <div class="codmod-input">
+                <input id="codmod-mod" type="radio" name="codmod" value="mod">
+                <label for="codmod-mod">Modulação</label>
+            </div>
+        </div>
+        <div class="cod-options-wrapper">
+            <div class="cod-option">
+                <input id="cod-1" type="checkbox" name="cod-1"><label for="cod-1">Cod 1</label>
+            </div>
+            <div class="cod-option">
+                <input id="cod-2" type="checkbox" name="cod-2"><label for="cod-2">Cod 2</label>
+            </div>
+            <div class="cod-option">
+                <input id="cod-3" type="checkbox" name="cod-3"><label for="cod-3">Cod 3</label>
+            </div>
+            <div class="cod-option">
+                <input id="cod-4" type="checkbox" name="cod-4"><label for="cod-4">Cod 4</label>
+            </div>
+            <div class="cod-option">
+                <input id="cod-5" type="checkbox" name="cod-5"><label for="cod-5">Cod 5</label>
+            </div>
+        </div>
+    </div>
+    <div class="container right">
+        Container right
+    </div>
 </body>
+
 </html>
