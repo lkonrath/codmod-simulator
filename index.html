@@ -13,7 +13,7 @@
     <div class="container left">
         <h1>Informe o número binario (8 bits)</h1>
         <div class="binary-input-wrapper">
-            <div class="binary-input" data-digit="8" data-value="0">0</div>
+            <div class="binary-input" data-digit="8" data-value="1">0</div>
             <div class="binary-input" data-digit="7" data-value="0">0</div>
             <div class="binary-input" data-digit="6" data-value="0">0</div>
             <div class="binary-input" data-digit="5" data-value="0">0</div>
@@ -24,7 +24,7 @@
         </div>
         <div class="codmod-wrapper">
             <div class="codmod-input">
-                <input id="codmod-cod" type="radio" name="codmod" value="cod">
+                <input id="codmod-cod" type="radio" name="codmod" value="cod" checked>
                 <label for="codmod-cod">Codificação</label>
             </div>
             <div class="codmod-input">
@@ -32,27 +32,50 @@
                 <label for="codmod-mod">Modulação</label>
             </div>
         </div>
-        <div class="cod-options-wrapper">
-            <div class="cod-option">
-                <input id="cod-1" type="checkbox" name="cod-1"><label for="cod-1">Cod 1</label>
+        <div class="codmod-options-wrapper">
+            <div class="option cod">
+                <input id="opt-1" data-render="render" type="checkbox"><label for="opt-1">Nonreturn to Zero (NZR),
+                    Unipolar</label>
             </div>
-            <div class="cod-option">
-                <input id="cod-2" type="checkbox" name="cod-2"><label for="cod-2">Cod 2</label>
+            <div class="option cod">
+                <input id="opt-2" type="checkbox"><label for="opt-2">Nonreturn to Zero-Level (NRZ-L), Bipolar</label>
             </div>
-            <div class="cod-option">
-                <input id="cod-3" type="checkbox" name="cod-3"><label for="cod-3">Cod 3</label>
+            <div class="option cod">
+                <input id="opt-3" type="checkbox"><label for="opt-3">NonReturn to Zero Inverted (NZRI), Bipolar</label>
             </div>
-            <div class="cod-option">
-                <input id="cod-4" type="checkbox" name="cod-4"><label for="cod-4">Cod 4</label>
+            <div class="option cod">
+                <input id="opt-4" type="checkbox"><label for="opt-4">Bipolar - AMI bipolar</label>
             </div>
-            <div class="cod-option">
-                <input id="cod-5" type="checkbox" name="cod-5"><label for="cod-5">Cod 5</label>
+            <div class="option cod">
+                <input id="opt-5" type="checkbox"><label for="opt-5">Pseudoternary bipolar</label>
             </div>
+            <div class="option cod">
+                <input id="opt-6" type="checkbox"><label for="opt-6">Manchester bipolar</label>
+            </div>
+            <div class="option cod">
+                <input id="opt-7" type="checkbox"><label for="opt-7">Differential Manchester bipolar</label>
+            </div>
+            <div class="option mod">
+                <input id="opt-8" type="checkbox"><label for="opt-8">Amplitude shift keying (ASK)</label>
+            </div>
+            <div class="option mod">
+                <input id="opt-9" type="checkbox"><label for="opt-9">Frequency shift keying (FSK)</label>
+            </div>
+            <div class="option mod">
+                <input id="opt-10" type="checkbox"><label for="opt-10">Phase shift keying (FSK)</label>
+            </div>
+        </div>
+        <div class="footer-wrapper">
+            <button class="btn-show">Exíbir</button>
         </div>
     </div>
     <div class="container right">
         Container right
     </div>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="functions.js"></script>
+    <script src="events.js"></script>
 </body>
 
 </html>
