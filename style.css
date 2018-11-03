@@ -82,5 +82,13 @@ body {
     padding:8px 12px;
     border-radius:3px;
     font-size:1.4em;
+}
 
+.graph .part {
+    width:10%;
+    display: inline-block;
+    margin-left:-4px;
+}
+.graph .part img {
+    width:100%;
 }
