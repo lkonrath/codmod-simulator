@@ -26,7 +26,6 @@ function render_nrz(binary) {
 
     var $graph = $('<div class="graph"></div>');
     var $parts = $('<div class="parts"></div>');
-    var binaryValue = undefined;
 
     $graph.append('<div class="title">Nonreturn to Zero (NRZ), Unipolar</div>')
     $parts.append('<div class="part"><img src="graphs/nrz/begin.png"></div>');
