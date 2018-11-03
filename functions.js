@@ -22,23 +22,58 @@ function ToggleBinaryInputValue($input) {
     }
 }
 
-
 function render_nrz(binary) {
     var $element = $('<div>nrz ' + binary + '</div>');
     return $element;
 }
+
 function render_nrzl(binary) {
     var $element = $('<div>nrzl ' + binary + '</div>');
     return $element;
 }
+
 function render_nrzi(binary) {
     var $element = $('<div>nrzi ' + binary + '</div>');
     return $element;
 }
 
+function render_ami(binary) {
+    var $element = $('<div>ami ' + binary + '</div>');
+    return $element;
+}
+
+function render_pseudoternary(binary) {
+    var $element = $('<div>pseudoternary ' + binary + '</div>');
+    return $element;
+}
+
+function render_manchester(binary) {
+    var $element = $('<div>manchester ' + binary + '</div>');
+    return $element;
+}
+
+function render_difManchester(binary) {
+    var $element = $('<div>dif manchester ' + binary + '</div>');
+    return $element;
+}
+
+function render_ask(binary) {
+    var $element = $('<div>ask ' + binary + '</div>');
+    return $element;
+}
+
+function render_fsk(binary) {
+    var $element = $('<div>fsk ' + binary + '</div>');
+    return $element;
+}
+
+function render_psk(binary) {
+    var $element = $('<div>psk ' + binary + '</div>');
+    return $element;
+}
 
 function renderAll() {
-    
+
     var $options = $('.codmod-options-wrapper input:checked');
     var $container = $('.container.right');
     var binary = getBinaryNumber();
@@ -56,6 +91,27 @@ function renderAll() {
                 break;
             case 'nrzi':
                 $container.append(render_nrzi(binary));
+                break;
+            case 'ami':
+                $container.append(render_ami(binary));
+                break;
+            case 'pseudoternary':
+                $container.append(render_pseudoternary(binary));
+                break;
+            case 'manchester':
+                $container.append(render_manchester(binary));
+                break;
+            case 'dif-manchester':
+                $container.append(render_difManchester(binary));
+                break;
+            case 'ask':
+                $container.append(render_ask(binary));
+                break;
+            case 'fsk':
+                $container.append(render_fsk(binary));
+                break;
+            case 'psk':
+                $container.append(render_psk(binary));
                 break;
             default:
                 break;
