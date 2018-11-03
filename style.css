@@ -11,6 +11,7 @@ body {
     height: 100vh;
     float:left;
     padding:15px;
+    box-sizing: border-box;
 }
 .container.left {
     width:40vw;
@@ -19,6 +20,7 @@ body {
 .container.right {
     width:60vw;
     background-color:white;
+    font-size:1.4em;
 }
 
 .binary-input-wrapper {
