@@ -23,29 +23,53 @@ function ToggleBinaryInputValue($input) {
 }
 
 function render_nrz(binary) {
+
     var $graph = $('<div class="graph"></div>');
+    var $parts = $('<div class="parts"></div>');
     var binaryValue = undefined;
 
-    $graph.append('<div class="part"><img src="graphs/nrz/first.png"></div>');
+    $graph.append('<div class="title">Nonreturn to Zero (NRZ), Unipolar</div>')
+    $parts.append('<div class="part"><img src="graphs/nrz/first.png"></div>');
 
     for (var x = 0; x < binary.length; x++) {
         binaryValue = binary.charAt(x);
         if (binaryValue == '0') {
-            $graph.append('<div class="part"><img src="graphs/nrz/down.png"></div>');
+            $parts.append('<div class="part"><img src="graphs/nrz/down.png"></div>');
         }
         else {
-            $graph.append('<div class="part"><img src="graphs/nrz/up.png"></div>');
+            $parts.append('<div class="part"><img src="graphs/nrz/up.png"></div>');
         }
     }
 
-    $graph.append('<div class="part"><img src="graphs/nrz/last.png"></div>');
+    $parts.append('<div class="part"><img src="graphs/nrz/last.png"></div>');
+    $graph.append($parts);
 
     return $graph;
 }
 
 function render_nrzl(binary) {
-    var $element = $('<div>nrzl ' + binary + '</div>');
-    return $element;
+
+    var $graph = $('<div class="graph"></div>');
+    var $parts = $('<div class="parts"></div>');
+    var binaryValue = undefined;
+
+    $graph.append('<div class="title">Nonreturn to Zero-Level (NRZ-L), Bipolar</div>')
+    $parts.append('<div class="part"><img src="graphs/nrzl/first.png"></div>');
+
+    for (var x = 0; x < binary.length; x++) {
+        binaryValue = binary.charAt(x);
+        if (binaryValue == '0') {
+            $parts.append('<div class="part"><img src="graphs/nrzl/down.png"></div>');
+        }
+        else {
+            $parts.append('<div class="part"><img src="graphs/nrzl/up.png"></div>');
+        }
+    }
+
+    $parts.append('<div class="part"><img src="graphs/nrzl/last.png"></div>');
+    $graph.append($parts);
+
+    return $graph;
 }
 
 function render_nrzi(binary) {
