@@ -38,19 +38,19 @@ function render_nrz(binary) {
         var partName = '';
 
         if (isFirst) {
-            partName =  current == '0' ? 'down' : 'up';
+            partName = current == '0' ? 'down' : 'up';
         }
         else {
-            if(current == '0' && previous == '1'){
+            if (current == '0' && previous == '1') {
                 partName = 'godown';
             }
-            else if(current == '0' && previous == '0'){
+            else if (current == '0' && previous == '0') {
                 partName = 'down';
             }
-            else if(current == '1' && previous == '0'){
+            else if (current == '1' && previous == '0') {
                 partName = 'goup';
             }
-            else if(current == '1' && previous == '1'){
+            else if (current == '1' && previous == '1') {
                 partName = 'up';
             }
         }
@@ -66,25 +66,42 @@ function render_nrz(binary) {
 }
 
 function render_nrzl(binary) {
-
     var $graph = $('<div class="graph"></div>');
     var $parts = $('<div class="parts"></div>');
-    var binaryValue = undefined;
 
-    $graph.append('<div class="title">Nonreturn to Zero-Level (NRZ-L), Bipolar</div>')
-    $parts.append('<div class="part"><img src="graphs/nrzl/first.png"></div>');
+    $graph.append('<div class="title">Nonreturn to Zero (NRZ), Unipolar</div>')
+    $parts.append('<div class="part"><img src="graphs/nrz/begin.png"></div>');
 
     for (var x = 0; x < binary.length; x++) {
-        binaryValue = binary.charAt(x);
-        if (binaryValue == '0') {
-            $parts.append('<div class="part"><img src="graphs/nrzl/down.png"></div>');
+
+        var previous = binary.charAt(x - 1);
+        var current = binary.charAt(x);
+        var isFirst = x == 0;
+        var partName = '';
+
+        if (isFirst) {
+            partName = current == '0' ? 'down' : 'up';
         }
         else {
-            $parts.append('<div class="part"><img src="graphs/nrzl/up.png"></div>');
+            if (current == '0' && previous == '1') {
+                partName = 'godown';
+            }
+            else if (current == '0' && previous == '0') {
+                partName = 'down';
+            }
+            else if (current == '1' && previous == '0') {
+                partName = 'goup';
+            }
+            else if (current == '1' && previous == '1') {
+                partName = 'up';
+            }
         }
+
+        $parts.append('<div class="part"><img src="graphs/nrz/' + partName + '.png"></div>');
+
     }
 
-    $parts.append('<div class="part"><img src="graphs/nrzl/last.png"></div>');
+    $parts.append('<div class="part"><img src="graphs/nrz/end.png"></div>');
     $graph.append($parts);
 
     return $graph;
