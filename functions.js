@@ -70,7 +70,7 @@ function render_nrzl(binary) {
     var $parts = $('<div class="parts"></div>');
 
     $graph.append('<div class="title">Nonreturn to Zero (NRZ), Unipolar</div>')
-    $parts.append('<div class="part"><img src="graphs/nrz/begin.png"></div>');
+    $parts.append('<div class="part"><img src="graphs/nrzl/begin.png"></div>');
 
     for (var x = 0; x < binary.length; x++) {
 
@@ -97,11 +97,11 @@ function render_nrzl(binary) {
             }
         }
 
-        $parts.append('<div class="part"><img src="graphs/nrz/' + partName + '.png"></div>');
+        $parts.append('<div class="part"><img src="graphs/nrzl/' + partName + '.png"></div>');
 
     }
 
-    $parts.append('<div class="part"><img src="graphs/nrz/end.png"></div>');
+    $parts.append('<div class="part"><img src="graphs/nrzl/end.png"></div>');
     $graph.append($parts);
 
     return $graph;
