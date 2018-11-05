@@ -224,8 +224,70 @@ function render_ami(binary) {
 }
 
 function render_pseudoternary(binary) {
-    var $element = $('<div>pseudoternary ' + binary + '</div>');
-    return $element;
+
+    var $graph = $('<div class="graph"></div>');
+    var $parts = $('<div class="parts"></div>');
+
+    $graph.append('<div class="title">Pseudoternary bipolar</div>')
+    $parts.append('<div class="part"><img src="graphs/pseudoternary/begin.png"></div>');
+
+
+    var pole = 'down';
+
+    for (var x = 0; x < binary.length; x++) {
+
+        var previous = binary.charAt(x - 1);
+        var current = binary.charAt(x);
+
+        var isFirst = x == 0;
+        var partName = '';
+
+
+        if (current == '1') {
+            if (previous == '1' || isFirst) {
+                partName = 'middle';
+            }
+            else {
+                if (pole == 'up') {
+                    partName = 'upgomiddle';
+                }
+                else {
+                    partName = 'downgomiddle';
+                }
+            }
+        }
+        else if(current = '0') {
+            if(isFirst){
+                partName = 'up';
+                pole = 'up';
+            }
+            else if (previous == '1' && pole == 'up') {
+                partName = 'middlegodown';
+                pole = 'down';
+            }
+            else if (previous == '1' && pole == 'down') {
+                partName = 'middlegoup';
+                pole = 'up';
+            }
+            else if (previous == '0' && pole == 'up') {
+                partName = 'upgodown';
+                pole = 'down';
+            }
+            else if(previous == '0' && pole == 'down'){
+                partName = 'downgoup';
+                pole = 'up';
+            }
+        }
+
+        $parts.append('<div class="part"><img src="graphs/pseudoternary/' + partName + '.png"></div>');
+
+    }
+
+    $parts.append('<div class="part"><img src="graphs/pseudoternary/end.png"></div>');
+    $graph.append($parts);
+
+    return $graph;
+
 }
 
 function render_manchester(binary) {
