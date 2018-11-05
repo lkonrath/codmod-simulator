@@ -69,7 +69,7 @@ function render_nrzl(binary) {
     var $graph = $('<div class="graph"></div>');
     var $parts = $('<div class="parts"></div>');
 
-    $graph.append('<div class="title">Nonreturn to Zero (NRZ), Unipolar</div>')
+    $graph.append('<div class="title">Nonreturn to Zero-Level (NRZ-L), Bipolar</div>')
     $parts.append('<div class="part"><img src="graphs/nrzl/begin.png"></div>');
 
     for (var x = 0; x < binary.length; x++) {
@@ -111,22 +111,45 @@ function render_nrzi(binary) {
 
     var $graph = $('<div class="graph"></div>');
     var $parts = $('<div class="parts"></div>');
-    var binaryValue = undefined;
 
     $graph.append('<div class="title">NonReturn to Zero Inverted (NRZI), Bipolar</div>')
-    $parts.append('<div class="part"><img src="graphs/nrzl/first.png"></div>');
+    $parts.append('<div class="part"><img src="graphs/nrzli/begin.png"></div>');
+
+
+    var pole = undefined;
 
     for (var x = 0; x < binary.length; x++) {
-        binaryValue = binary.charAt(x);
-        if (binaryValue == '0') {
-            $parts.append('<div class="part"><img src="graphs/nrzl/down.png"></div>');
+
+        var current = binary.charAt(x);
+
+        var isFirst = x == 0;
+        var partName = '';
+
+        if (isFirst) {
+            partName = 'up';
+            pole = 'up';
         }
         else {
-            $parts.append('<div class="part"><img src="graphs/nrzl/up.png"></div>');
+            if (current == '0') {
+                partName = pole;
+            }
+            else {
+                if (pole == 'up') {
+                    partName = 'godown';
+                    pole = 'down';
+                }
+                else {
+                    partName = 'goup';
+                    pole = 'up';
+                }
+            }
         }
+
+        $parts.append('<div class="part"><img src="graphs/nrzli/' + partName + '.png"></div>');
+
     }
 
-    $parts.append('<div class="part"><img src="graphs/nrzl/last.png"></div>');
+    $parts.append('<div class="part"><img src="graphs/nrzli/end.png"></div>');
     $graph.append($parts);
 
     return $graph;
