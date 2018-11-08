@@ -376,13 +376,65 @@ function render_difManchester(binary) {
 }
 
 function render_ask(binary) {
-    var $element = $('<div>ask ' + binary + '</div>');
-    return $element;
+    var $graph = $('<div class="graph"></div>');
+    var $parts = $('<div class="parts"></div>');
+
+    $graph.append('<div class="title">Amplitude shift keying (ASK)</div>')
+    $parts.append('<div class="part"><img src="graphs/ask/begin.png"></div>');
+
+
+    for (var x = 0; x < binary.length; x++) {
+
+        var current = binary.charAt(x);
+        var partName = '';
+
+        if(current == '0'){
+            partName = 'f0';
+        }
+        else {
+            partName = 'f1';
+        }
+
+
+        $parts.append('<div class="part"><img src="graphs/ask/' + partName + '.png"></div>');
+
+    }
+
+    $parts.append('<div class="part"><img src="graphs/ask/end.png"></div>');
+    $graph.append($parts);
+
+    return $graph;
 }
 
 function render_fsk(binary) {
-    var $element = $('<div>fsk ' + binary + '</div>');
-    return $element;
+    var $graph = $('<div class="graph"></div>');
+    var $parts = $('<div class="parts"></div>');
+
+    $graph.append('<div class="title">Frequency shift keying (FSK)</div>')
+    $parts.append('<div class="part"><img src="graphs/fsk/begin.png"></div>');
+
+
+    for (var x = 0; x < binary.length; x++) {
+
+        var current = binary.charAt(x);
+        var partName = '';
+
+        if(current == '0'){
+            partName = 'f0';
+        }
+        else {
+            partName = 'f1';
+        }
+
+
+        $parts.append('<div class="part"><img src="graphs/fsk/' + partName + '.png"></div>');
+
+    }
+
+    $parts.append('<div class="part"><img src="graphs/fsk/end.png"></div>');
+    $graph.append($parts);
+
+    return $graph;
 }
 
 function render_psk(binary) {
