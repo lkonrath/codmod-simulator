@@ -80,20 +80,20 @@ function render_nrzl(binary) {
         var partName = '';
 
         if (isFirst) {
-            partName = current == '0' ? 'down' : 'up';
+            partName = current == '0' ? 'up' : 'down';
         }
         else {
             if (current == '0' && previous == '1') {
-                partName = 'godown';
-            }
-            else if (current == '0' && previous == '0') {
-                partName = 'down';
-            }
-            else if (current == '1' && previous == '0') {
                 partName = 'goup';
             }
-            else if (current == '1' && previous == '1') {
+            else if (current == '0' && previous == '0') {
                 partName = 'up';
+            }
+            else if (current == '1' && previous == '0') {
+                partName = 'godown';
+            }
+            else if (current == '1' && previous == '1') {
+                partName = 'down';
             }
         }
 
