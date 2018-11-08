@@ -291,8 +291,48 @@ function render_pseudoternary(binary) {
 }
 
 function render_manchester(binary) {
-    var $element = $('<div>manchester ' + binary + '</div>');
-    return $element;
+    var $graph = $('<div class="graph"></div>');
+    var $parts = $('<div class="parts"></div>');
+
+    $graph.append('<div class="title">Manchester bipolar</div>')
+    $parts.append('<div class="part"><img src="graphs/manchester/begin.png"></div>');
+
+
+    for (var x = 0; x < binary.length; x++) {
+
+        var previous = binary.charAt(x - 1);
+        var current = binary.charAt(x);
+
+        var isFirst = x == 0;
+        var partName = '';
+
+
+        if(current == '0'){
+            if(isFirst || previous == '1'){
+                partName = 'upgodown';
+            }
+            else{
+                partName = 'upgodown2'
+            }
+        }
+
+        if(current == '1'){
+            if(isFirst || previous == '0'){
+                partName = 'downgoup';
+            }
+            else{
+                partName = 'downgoup2'
+            }
+        }        
+
+        $parts.append('<div class="part"><img src="graphs/manchester/' + partName + '.png"></div>');
+
+    }
+
+    $parts.append('<div class="part"><img src="graphs/manchester/end.png"></div>');
+    $graph.append($parts);
+
+    return $graph;
 }
 
 function render_difManchester(binary) {
