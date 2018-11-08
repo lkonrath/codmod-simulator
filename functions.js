@@ -438,8 +438,34 @@ function render_fsk(binary) {
 }
 
 function render_psk(binary) {
-    var $element = $('<div>psk ' + binary + '</div>');
-    return $element;
+    var $graph = $('<div class="graph"></div>');
+    var $parts = $('<div class="parts"></div>');
+
+    $graph.append('<div class="title">Phase shift keying (PSK)</div>')
+    $parts.append('<div class="part"><img src="graphs/psk/begin.png"></div>');
+
+
+    for (var x = 0; x < binary.length; x++) {
+
+        var current = binary.charAt(x);
+        var partName = '';
+
+        if(current == '0'){
+            partName = 'f0';
+        }
+        else {
+            partName = 'f1';
+        }
+
+
+        $parts.append('<div class="part"><img src="graphs/psk/' + partName + '.png"></div>');
+
+    }
+
+    $parts.append('<div class="part"><img src="graphs/psk/end.png"></div>');
+    $graph.append($parts);
+
+    return $graph;
 }
 
 function renderAll() {
