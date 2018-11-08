@@ -312,7 +312,7 @@ function render_manchester(binary) {
                 partName = 'upgodown';
             }
             else{
-                partName = 'upgodown2'
+                partName = 'upgodown2';
             }
         }
 
@@ -321,7 +321,7 @@ function render_manchester(binary) {
                 partName = 'downgoup';
             }
             else{
-                partName = 'downgoup2'
+                partName = 'downgoup2';
             }
         }        
 
@@ -336,8 +336,43 @@ function render_manchester(binary) {
 }
 
 function render_difManchester(binary) {
-    var $element = $('<div>dif manchester ' + binary + '</div>');
-    return $element;
+    var $graph = $('<div class="graph"></div>');
+    var $parts = $('<div class="parts"></div>');
+
+    $graph.append('<div class="title">Differential Manchester bipolar</div>')
+    $parts.append('<div class="part"><img src="graphs/dif-manchester/begin.png"></div>');
+
+
+    var pole = 'up';
+    for (var x = 0; x < binary.length; x++) {
+
+        var current = binary.charAt(x);
+        var partName = '';
+
+        
+        if(current == '0' && pole == 'up' ){
+            partName = 'upgodowngoup';
+        }
+        else if(current == '0' && pole == 'down'){
+            partName = 'downgoupgodown';
+        }
+        else if(current == '1' && pole == 'up'){
+            partName = 'upgodown';
+            pole = 'down';
+        }
+        else if(current == '1' && pole == 'down'){
+            partName = 'downgoup';
+            pole = 'up';
+        }      
+
+        $parts.append('<div class="part"><img src="graphs/dif-manchester/' + partName + '.png"></div>');
+
+    }
+
+    $parts.append('<div class="part"><img src="graphs/dif-manchester/end.png"></div>');
+    $graph.append($parts);
+
+    return $graph;
 }
 
 function render_ask(binary) {
